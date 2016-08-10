@@ -48,6 +48,9 @@ class Caracteristique:
     def getValue(self):
         return self.value
 
+    def setBase(self, newBase):
+        self.baseValue=newBase
+
 
 class Personnage:
     def __init__(self, nom, vie=100, mana=100):
