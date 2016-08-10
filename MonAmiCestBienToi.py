@@ -2,9 +2,9 @@
 """
 Created on Fri Jun 24 18:51:37 2016
 
-@author: Kinex
+@authors : Kinex & Papers
 """
-
+from random import *
 #class Attaque
 
 class Equipement:
@@ -53,6 +53,7 @@ class Personnage:
     def __init__(self, nom, vie=100, mana=100):
         ##Base de la base
         self.nom=nom
+<<<<<<< Updated upstream
         self.vie_max=Caracteristique(vie)
         self.vie_courante=self.vie_max.getValue()
         self.mana=mana
@@ -61,6 +62,12 @@ class Personnage:
         self.force=Caracteristique(100)
         self.agilite=Caracteristique(30)
         self.constitution=Caracteristique(30)
+=======
+        self.vie=vie
+        self.force=100
+        self.defense
+        self.constitution=100
+>>>>>>> Stashed changes
         # vie : max et courante
         # attaque  --> Air/feu/eau/terre
         # defense  --> Idem
@@ -68,12 +75,17 @@ class Personnage:
         # résistance
         
     def attaquer(self, autrePerso):
+<<<<<<< Updated upstream
         degats=self.baseAttaque+self.attaqueModifier+self.force/10
+=======
+        degats=(force/2)+(randint(-100,100)/100)*(force/2) # les degats donnes ont comme valeur max force/2+force/2 = force et comme valeur min force/2=force/2=0
+        ##mod des degats
+>>>>>>> Stashed changes
         autrePerso.defendre(degats)
         
     def defendre(self, degatsRecus):
         ##mod des degats recus
-        degatsFinaux=degatsRecus
+        degatsFinaux=degatsRecus-(randint(0,100)/100*defense) # on soustrait aux degats recus au maximum "defense".
         self.vie-=degatsFinaux
         
     def getVie(self):
