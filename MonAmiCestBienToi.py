@@ -67,13 +67,16 @@ class Personnage:
 
         self.vie=vie
         self.force=100
-        self.defense
+        self.defense=100
         self.constitution=100
         # vie : max et courante
         # attaque  --> Air/feu/eau/terre
         # defense  --> Idem
         # mana
         # résistance
+
+    def aimerSonProchain(self, autrePerso):
+        print('Bonjour, '+str(autrePerso.nom)+' !')
         
     def attaquer(self, autrePerso):
         degats=(force/2)+(randint(-100,100)/100)*(force/2) # les degats donnes ont comme valeur max force/2+force/2 = force et comme valeur min force/2=force/2=0
