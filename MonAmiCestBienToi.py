@@ -7,17 +7,60 @@ Created on Fri Jun 24 18:51:37 2016
 
 #class Attaque
 
+class Equipement:
+    def __init__(self, nom, modificateurs):
+        self.nom=nom
+        self.modificateurs={
+            "CONSTITUTION" : modificateurs[0], #Constitution
+            "FORCE" : modificateurs[1], #Force
+            "AGILITE" : modificateurs[2] #Agilité
+        }
+        #self.owner..
+
+    def getMod(self, TYPE):
+        if TYPE not in ["CONSTITUTION", "FORCE", "AGILITE"]:
+            raise ValueError("Caractéristique incorrecte")
+        else:
+            return self.modificateurs[TYPE]
+
 class Caracteristique:
-    def __init__(self, ):
-        self
+    def __init__(self, TYPE, baseValue):
+        if TYPE not in ["CONSTITUTION", "FORCE", "AGILITE"]:
+            raise ValueError("Caractéristique incorrecte")
+        else:
+            self.TYPE=TYPE
+        self.baseValue=baseValue
+        self.modifiers=dict()
+        self.value=self.updateValue()
+
+    def attachEquipements(self, *equipement):
+        for i in equipement:
+            self.modifiers[i.name]=i.getMod(self.TYPE)
+        self.updateValue()
+
+    def updateValue(self):
+        value=self.baseValue
+        for i in self.modifiers.values():
+            ##extract value
+            value += i
+        return value
+
+    def getValue(self):
+        return self.value
+
 
 class Personnage:
-    def __init__(self, nom, vie=100):
+    def __init__(self, nom, vie=100, mana=100):
+        ##Base de la base
         self.nom=nom
-        self.vie=vie
-        self.attaqueModifier=0
-        self.baseAttaque
-        self.force
+        self.vie_max=Caracteristique(vie)
+        self.vie_courante=self.vie_max.getValue()
+        self.mana=mana
+
+        ##Caractéristiques influencables par l'équipmt
+        self.force=Caracteristique(100)
+        self.agilite=Caracteristique(30)
+        self.constitution=Caracteristique(30)
         # vie : max et courante
         # attaque  --> Air/feu/eau/terre
         # defense  --> Idem
