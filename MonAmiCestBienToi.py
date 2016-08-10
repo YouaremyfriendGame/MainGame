@@ -77,7 +77,11 @@ class Personnage:
 
     def aimerSonProchain(self, autrePerso):
         print('Bonjour, '+str(autrePerso.nom)+' !')
-        
+
+
+    def boudouBoudou(self):
+        print('BoudouBoudou')
+
     def attaquer(self, autrePerso):
         degats=(force/2)+(randint(-100,100)/100)*(force/2) # les degats donnes ont comme valeur max force/2+force/2 = force et comme valeur min force/2=force/2=0
         ##mod des degats
