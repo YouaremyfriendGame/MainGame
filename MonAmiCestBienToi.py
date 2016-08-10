@@ -7,10 +7,17 @@ Created on Fri Jun 24 18:51:37 2016
 
 #class Attaque
 
+class Caracteristique:
+    def __init__(self, ):
+        self
+
 class Personnage:
     def __init__(self, nom, vie=100):
         self.nom=nom
         self.vie=vie
+        self.attaqueModifier=0
+        self.baseAttaque
+        self.force
         # vie : max et courante
         # attaque  --> Air/feu/eau/terre
         # defense  --> Idem
@@ -18,8 +25,7 @@ class Personnage:
         # résistance
         
     def attaquer(self, autrePerso):
-        degats=10
-        ##mod des degats
+        degats=self.baseAttaque+self.attaqueModifier+self.force/10
         autrePerso.defendre(degats)
         
     def defendre(self, degatsRecus):
