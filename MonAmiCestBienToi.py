@@ -11,6 +11,11 @@ class Personnage:
     def __init__(self, nom, vie=100):
         self.nom=nom
         self.vie=vie
+        # vie : max et courante
+        # attaque  --> Air/feu/eau/terre
+        # defense  --> Idem
+        # mana
+        # résistance
         
     def attaquer(self, autrePerso):
         degats=10
