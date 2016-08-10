@@ -75,9 +75,9 @@ class Personnage:
         # mana
         # résistance
 
-    def aimerSonProchain(self, autrePerso):
+    def aimerSonProchainAvecHypocrisie(self, autrePerso):
         print('Bonjour, '+str(autrePerso.nom)+' !')
-
+        autrePerso.defendre(randint(0, 100))
 
     def boudouBoudou(self):
         print('BoudouBoudou')
